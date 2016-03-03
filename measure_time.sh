@@ -3,6 +3,10 @@
 
 #declare varibables:
 
+if [ ! `whoami` == "root" ]; then
+	echo "Please run as root"
+	exit
+fi
 
 result=$( { time ./gen_app.sh $1 >/dev/null; } 2>&1 )
 echo $result
